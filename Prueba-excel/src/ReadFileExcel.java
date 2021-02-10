@@ -11,13 +11,12 @@ public class ReadFileExcel {
 	public static void main(String[] args) {
 		String nombreArchivo = "prueba-excel.xlsx";
 		String rutaArchivo = "C:\\Users\\Ferna\\git\\prueba-excel\\" + nombreArchivo;
-		String hoja = "Hoja1";
  
 		try (FileInputStream file = new FileInputStream(new File(rutaArchivo))) {
 			// leer archivo excel
-			XSSFWorkbook worbook = new XSSFWorkbook(file);
+			XSSFWorkbook workbook = new XSSFWorkbook(file);
 			//obtener la hoja que se va leer
-			XSSFSheet sheet = worbook.getSheetAt(0);
+			XSSFSheet sheet = workbook.getSheetAt(0);
 			//obtener todas las filas de la hoja excel
 			Iterator<Row> rowIterator = sheet.iterator();
  

@@ -50,6 +50,10 @@ public class ExcelOOXML {
         //Guardar archivo
         try {
             FileOutputStream salida = new FileOutputStream(archivo);
+            if (archivo.exists()) {// si el archivo existe se elimina
+            	archivo.delete();
+				System.out.println("Archivo eliminado");
+			}
             workbook.write(salida);
             workbook.close();
             LOGGER.log(Level.INFO, "Archivo creado existosamente en {0}", archivo.getAbsolutePath());
