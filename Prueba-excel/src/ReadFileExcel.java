@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ReadFileExcel {
 	public static void main(String[] args) {
 		String nombreArchivo = "prueba-excel.xlsx";
-		String rutaArchivo = "C:\\Users\\Ferna\\git\\prueba-excel" + nombreArchivo;
+		String rutaArchivo = "C:\\Users\\Ferna\\git\\prueba-excel\\" + nombreArchivo;
 		String hoja = "Hoja1";
  
 		try (FileInputStream file = new FileInputStream(new File(rutaArchivo))) {
