@@ -35,13 +35,13 @@ public class ExcelOOXML {
         String[] titulos = {"Nombre", "Apellidos", "Email", "DNI"};
         String[] datos   = {"Fernando", "Suárez Menéndez", "suarez11fer@gmail.com", "00000000X"};
 
-        Row fila = pagina.createRow(0);
+        Row fila = pagina.createRow(1);
         for (int i = 0; i < titulos.length; i++) {
             Cell celda = fila.createCell(i);
             celda.setCellStyle(style);
             celda.setCellValue(titulos[i]);
         }
-        fila = pagina.createRow(1);
+        fila = pagina.createRow(2);
         for (int i = 0; i < datos.length; i++) {
             Cell celda = fila.createCell(i);
             celda.setCellValue(datos[i]);
