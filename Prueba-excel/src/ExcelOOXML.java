@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,8 +19,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelOOXML {
-
-    private static final Logger LOGGER = Logger.getLogger("mx.com.hash.newexcel.ExcelOOXML");
+    
+    static final Logger LOGGER = Logger.getLogger(ExcelOOXML.class.getName());
     
     private static File archivo = new File("prueba-excel.xlsx");
     private static Workbook workbook = new XSSFWorkbook();
@@ -28,6 +29,23 @@ public class ExcelOOXML {
 	private static String nombreArchivo = "prueba-excel.xlsx";
 	private static String rutaArchivo = "C:\\Users\\Ferna\\git\\prueba-excel\\" + nombreArchivo;
     
+	public ExcelOOXML() {
+		configureLogger();
+	}
+	
+	static {
+		System.setProperty("java.util.logging.SimpleFormatter.format",
+				"[%1$tF %1$tT][%4$-7s] [%5$s] [%2$-7s] %n");
+	}
+	
+	public void configureLogger() {
+		ConsoleHandler handler;
+		handler = new ConsoleHandler(); 
+		handler.setLevel(Level.FINE); 
+		LOGGER.addHandler(handler); 
+		LOGGER.setLevel(Level.FINE);
+	}
+	
     public static void createExcel() {
     	
         style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
